@@ -11,6 +11,7 @@ import { GhostPage } from '../pages/ghost-page/ghost-page';
 import { AccountPage } from '../pages/account/account';
 import { ArchivedRequestsPage } from '../pages/archived-requests/archived-requests';
 import { ManageAuthentificationPage } from '.././pages/manage-autehtification/manage-authentification';
+import { JoinUsPage } from '../pages/join-us/join-us';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class MyApp {
         { title: 'Active Services Requests', page: ActiveServicesRequestsPage, icon: 'list' },
         { title: 'Account', page: AccountPage, icon: 'contact' },
         { title: 'Archived Requests', page: ArchivedRequestsPage, icon: 'folder' },
+        { title: 'Join Us', page: JoinUsPage, icon: 'mail' }
       ];
   
       this.routingService.masterNav = this.masterNav;

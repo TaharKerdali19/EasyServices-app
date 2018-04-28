@@ -21,6 +21,7 @@ import { GhostPageModule } from '../pages/ghost-page/ghost-page.module';
 import { AccountModule } from '../pages/account/account.module';
 import { ArchivedRequestsModule } from '../pages/archived-requests/archived-requests.module';
 import { ManageAuthentificationModule } from '../pages/manage-autehtification/manage-authentification.module';
+import { JoinUsModule } from '../pages/join-us/join-us.module';
 
 var config = {
     apiKey: "AIzaSyBceyaug7vjvtaMQroxCBXVhWCkrTyr1pY",
@@ -46,6 +47,7 @@ var config = {
     AccountModule,
     ArchivedRequestsModule,
     ManageAuthentificationModule,
+    JoinUsModule,
     AngularFireModule.initializeApp(config),
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
