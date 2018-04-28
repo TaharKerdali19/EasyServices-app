@@ -1,0 +1,33 @@
+active-services-requests-page {
+    .dashbord-footer-menu {
+        background-color: map-get($colors, primary);
+        color: map-get($colors, whitecolor);
+        font-size: 0.85em;
+    }
+    .dashboard-header-btn {
+        font-size: 0.85em;
+    }
+    .list-header {
+        color: map-get($colors, whitecolor);
+        font-size: 1.2em;
+        margin: 0%;
+    }
+    .list-devider {
+        color: map-get($colors, whitecolor);
+        font-size: 0.9em;
+        padding: 0.15% 0% 1.4% 1.4%;
+        height: 1em;
+    }
+    .item {
+        padding: 0.15% 0% 1.4% 1.4%;
+    }
+    ion-item:hover {
+        background-color: map-get($colors, selectedItem);
+    }
+    .waiting {
+        color: map-get($colors, waiting);
+    }
+    .provider {
+        color: map-get($colors, dark);
+    }
+}

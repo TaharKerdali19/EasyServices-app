@@ -1,0 +1,14 @@
+account-page {
+    .btn {
+        text-align: center;
+        margin: 0px;
+    }
+    .list-header {
+        color: map-get($colors, whitecolor);
+        font-size: 1.2em;
+        margin: 0%;
+    }
+    .control{
+        margin: 1em;
+    }
+}

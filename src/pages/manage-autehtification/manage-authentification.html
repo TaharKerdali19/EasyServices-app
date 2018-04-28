@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar color="primary">
+       <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+            </button>
+        <ion-title>
+            EasyServices
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header class="list-header" color="dark" text-center>
+            <span>Authentification</span>
+        </ion-list-header>
+        <ion-item>
+        </ion-item>
+    </ion-list>
+    <form [formGroup]="form">
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" formControlName="mail" ></ion-input>
+        </ion-item>
+        <div *ngIf="mail.invalid && (mail.dirty || mail.touched)">
+            <div *ngIf="mail.errors.mailStat">
+                  <span class="control">the format of the email is not correct</span>
+            </div>
+        </div>
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" formControlName="password" value=""></ion-input>
+        </ion-item>
+    </form>
+</ion-content>
+
+
+<ion-footer>
+    <button ion-button full class="btn" (click)="logIn()" [disabled]="!form.valid" color="secondary">Log In</button>
+    <button ion-button full color="light" class="btn" (click)="OnCancel()">Cancel</button>
+    <button ion-button full class="btn" (click)="signIn()" [disabled]="!form.valid" color="secondary">Sign In</button>
+</ion-footer>
+

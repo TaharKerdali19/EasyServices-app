@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-toolbar>
+            <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+            <ion-title>
+              EasyServices
+            </ion-title>
+        </ion-toolbar>
+    </ion-navbar>
+</ion-header>
+
+<ion-content  class="ici">
+    <ion-list>
+        <ion-list-header class="list-header" color="dark" text-center>
+            <span>Profile</span>
+        </ion-list-header>
+    </ion-list>
+    <form [formGroup]="form">
+        <ion-item>
+            <ion-label floating>Last Name</ion-label>
+            <ion-input type="text" formControlName="lastName" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>First Name</ion-label>
+            <ion-input type="text" formControlName="firstName" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Address</ion-label>
+            <ion-input type="text" formControlName="address" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Postal Code</ion-label>
+            <ion-input type="text" formControlName="postalCode" value=""></ion-input>
+        </ion-item>
+        <div *ngIf="postalCode.invalid && (postalCode.dirty || postalCode.touched)">
+            <div *ngIf="postalCode.errors.postalCodeStatus">
+                  <span class="control">use this postal code format : A9A 9A9</span>
+            </div>
+        </div>
+        <ion-item>
+            <ion-label floating>Phone Number</ion-label>
+            <ion-input type="text" formControlName="phoneNumber" value=""></ion-input>
+        </ion-item>
+        <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+            <div *ngIf="phoneNumber.errors.cellStat">
+                  <span class="control">use this cell phone format : 999-999-9999</span> 
+                  
+            </div>
+        </div>
+  </form>
+</ion-content>
+
+<ion-footer>
+   <button ion-button full class="btn" color="secondary" (click)="logOut()">Log-Out</button>
+   <button ion-button full class="btn" color="light" (click)="cancel()">Cancel</button>
+   <button ion-button full class="btn" color="secondary" [disabled]="!form.valid" (click)="saveProfile(form.value)">Save</button>
+</ion-footer>
+

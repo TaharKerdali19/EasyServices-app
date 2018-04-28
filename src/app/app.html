@@ -1,0 +1,20 @@
+<ion-menu [content]="masterNav" type="overlay">
+    <ion-header id="header-menu">
+        <img src="assets/imgs/easyserviceslogo.png" alt="EasyService Team" (click)="openActiveServicesRequests()" menuClose>
+    </ion-header>
+
+    <ion-content class="menu">
+        <div class="divider-menu"></div>
+        <ion-list class="menu" no-lines>
+            <button style="font-size: 13px;" class="menu" ion-item menuClose *ngFor="let page of pages" (click)="openPage(page)">
+                <ion-icon name={{page.icon}} item-start></ion-icon>
+                {{page.title}}
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-split-pane [enabled]="getValue()" (ionChange)="routingService.onPlatformChanged($event._visible);">
+    <ion-nav [root]="masterPage" #masterNav></ion-nav>
+    <ion-nav [root]="detailPage" #detailNav main></ion-nav>
+</ion-split-pane>

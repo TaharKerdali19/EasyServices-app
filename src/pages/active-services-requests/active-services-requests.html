@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-toolbar>
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+            <ion-title>EasyServices</ion-title>
+        </ion-toolbar>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header class="list-header" color="dark" text-center>
+            <span>Requests In Progress</span>
+        </ion-list-header>
+        <ion-item-divider color="dividercolor" class="list-devider">
+            <span>Today</span>
+        </ion-item-divider>
+        <ion-item *ngFor="let requestService of toDayRequestService" class="item" (click)="openRequestService(requestService)">
+            <h2><strong>{{requestService['category_description']}}</strong></h2>
+            <h3 *ngIf="requestService['providerId']"><strong>{{requestService['provider_name']}}</strong></h3>
+            <h3 *ngIf="!requestService['providerId']" class="waiting"><strong>{{requestService['provider_name']}}</strong></h3>
+            <h3>{{requestService['appointment_date'] | date:'medium'}} </h3>
+            <p>{{requestService['description']}}</p>
+            <ion-thumbnail item-end>
+                <img *ngIf="requestService['pictureUrl']" [src]="requestService['pictureUrl']" alt="a request service picture">
+            </ion-thumbnail>
+        </ion-item>
+        <ion-item *ngIf="!toDayRequestService.length && uid">
+            <span>No service expected today</span>
+        </ion-item>
+        <ion-item *ngIf="connexionStatus==='Offline' && !uid">
+            <span>Your device is Offline and you are not authentified</span>
+        </ion-item>
+        <ion-item *ngIf="connexionStatus==='Online' && !uid">
+            <span>Your device is Online and you are not authentified</span>
+        </ion-item>
+        <ion-item-divider color="dividercolor" class="list-devider">
+            <span>Waiting for</span>
+        </ion-item-divider>
+        <ion-item *ngFor="let requestService of waitingForRequestService" class="item" (click)="openRequestService(requestService)">
+            <h2><strong>{{requestService['category_description']}}</strong></h2>
+            <h3 *ngIf="requestService['providerId']"><strong>{{requestService['provider_name']}}</strong></h3>
+            <h3 *ngIf="!requestService['providerId']" class="waiting"><strong>{{requestService['provider_name']}}</strong></h3>
+            <h3>{{requestService['appointment_date'] | date:'medium'}} </h3>
+            <p>{{requestService['description']}}</p>
+            <ion-thumbnail item-end>
+                <img *ngIf="requestService['pictureUrl']" [src]="requestService['pictureUrl']" alt="a request service picture">
+            </ion-thumbnail>
+        </ion-item>
+        <ion-item *ngIf="!waitingForRequestService.length && uid">
+            <span>No service in coming</span>
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer class="dashbord-footer-menu">
+    <ion-toolbar transparent>
+        <ion-buttons end>
+            <button class="dashbord-footer-menu" ion-button icon-start (click)="newRequestService()">
+                <ion-icon name="add"></ion-icon>
+                New Request Service
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

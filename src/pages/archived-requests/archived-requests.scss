@@ -1,0 +1,19 @@
+archive-requests-page {
+.list-header {
+        color: map-get($colors, whitecolor);
+        font-size: 1.2em;
+        margin: 0%;
+    }
+.list-devider {
+        color: map-get($colors, whitecolor);
+        font-size: 0.9em;
+        padding: 0.15% 0% 1.4% 1.4%;
+        height: 1em;
+}
+.item {
+        padding: 0.15% 0% 1.4% 1.4%;
+}
+ion-item:hover {
+        background-color: map-get($colors, selectedItem);
+}
+}

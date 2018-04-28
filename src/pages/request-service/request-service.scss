@@ -1,0 +1,9 @@
+request-service {
+    .btn-picture {
+        color: map-get($colors, primary);
+        margin: 0px;
+    }
+    .btn {
+        margin: 0px;
+    }
+}
